@@ -42,8 +42,7 @@ function pathRoot(request, url)
 	asOrganization = asOrganization ?? ''
 
 	const ua = headers.get('user-agent') ?? ''
-	const ipv4 = headers.get('CF-Connecting-IP') ?? ''
-	const ipv6 = headers.get('CF-Connecting-IPv6') ?? ''
+	const ip = headers.get('CF-Connecting-IP') ?? ''
 	const now = new Date()
 	const timestamp = now.getTime()
 	const timestampStr = now.toISOString()
@@ -53,8 +52,7 @@ function pathRoot(request, url)
 	{
 		case 'json': return new Response(
 			JSON.stringify({
-				'ipv4': ipv4,
-				'ipv6': ipv6,
+				'ip': ip,
 				'continent': continent,
 				'countries_or_regions': country,
 				'secondary_region': region,
@@ -92,8 +90,7 @@ a, a:visited, a > code, a:visited > code { color: #3b82f6 }
 <body>
 <main>
 <table>
-<tr><td>IP</td><td>${ipv4}</td></tr>
-<tr><td></td><td>${ipv6}</td></tr>
+<tr><td>IP</td><td>${ip}</td></tr>
 <tr><td>大陆</td><td>${continent}</td></tr>
 <tr><td>国家/地区</td><td>${country}</td></tr>
 <tr><td>省份/区域</td><td>${region}</td></tr>
