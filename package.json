@@ -1,10 +1,10 @@
 {
   "name": "ip",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "deploy": "wrangler deploy",
-    "dev": "wrangler dev",
+    "dev": "wrangler dev --ip 0.0.0.0",
     "start": "wrangler dev",
     "test": "vitest"
   },
