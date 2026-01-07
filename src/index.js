@@ -14,7 +14,10 @@ function pathFavicon()
   <path d="M 40 36 A 8 8 0 1 0 40 20" stroke="#108b96" stroke-width="8" fill="transparent"/>
 </svg>`,
 		{
-			headers: { 'Content-Type': 'image/svg+xml' },
+			headers: {
+				'Content-Type': 'image/svg+xml',
+				'Access-Control-Allow-Origin': '*',
+			},
 		},
 	)
 }
@@ -67,7 +70,12 @@ function pathRoot(request, url)
 				'timestamp_str': timestampStr,
 				'service_version': version,
 			}),
-			{ headers: { 'Content-Type': 'application/json' } }
+			{
+				headers: {
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': '*',
+				}
+			}
 		)
 
 		case 'html':
@@ -119,7 +127,12 @@ Styled with <a target='_blank' href='https://mblode.github.io/marx/'>Marx.css</a
 </body>
 </html>
 `,
-			{ headers: { 'Content-Type': 'text/html' } }
+			{
+				headers: {
+					'Content-Type': 'text/html',
+					'Access-Control-Allow-Origin': '*',
+				}
+			}
 		)
 	}
 }
